@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://boagk753gvlrh"]
+
+[ext_resource type="Texture2D" uid="uid://bwjsdbpxg8wss" path="res://icon.svg" id="1_p6pa3"]
+[ext_resource type="Script" uid="uid://dxkbsqvo0qef6" path="res://MovimientoPersonaje/MovimientoPersonaje.gd" id="2_p6pa3"]
+[ext_resource type="Texture2D" uid="uid://bj7h4bryp53la" path="res://pngwing.com.png" id="3_x77hp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pkoy"]
+size = Vector2(1147, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vicex"]
+size = Vector2(441, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aui74"]
+size = Vector2(127, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfkbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x77hp")
+}],
+"loop": 1,
+"name": &"correr",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"saltar",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(132, 383)
+
+[node name="Node2D" type="Node2D" unique_id=1747193274]
+
+[node name="Suelo" type="StaticBody2D" parent="." unique_id=1374594875]
+position = Vector2(125, 448)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo" unique_id=758356743]
+position = Vector2(-125.5, 0)
+scale = Vector2(9.1328125, 1)
+texture = ExtResource("1_p6pa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=1384880339]
+position = Vector2(-132.5, 4)
+shape = SubResource("RectangleShape2D_1pkoy")
+
+[node name="Techo" type="StaticBody2D" parent="." unique_id=752509143]
+position = Vector2(120, -71)
+
+[node name="Sprite2D" type="Sprite2D" parent="Techo" unique_id=270128276]
+position = Vector2(-125.5, 0)
+scale = Vector2(9.1328125, 1)
+texture = ExtResource("1_p6pa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Techo" unique_id=1657125643]
+position = Vector2(225.5, 4.5)
+shape = SubResource("RectangleShape2D_vicex")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Techo" unique_id=1110118205]
+position = Vector2(-487, 5)
+shape = SubResource("RectangleShape2D_vicex")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1177840271]
+position = Vector2(-7, 190)
+script = ExtResource("2_p6pa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1532923860]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_aui74")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1981824142]
+texture = ExtResource("1_p6pa3")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=72503894]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=165315552]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lfkbx")
+animation = &"correr"
+
+[node name="Pared" type="StaticBody2D" parent="." unique_id=1005375415]
+position = Vector2(-523, 161)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Pared" unique_id=1057526085]
+position = Vector2(-3, 31.49998)
+scale = Vector2(0.953125, 3.0234375)
+texture = ExtResource("1_p6pa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared" unique_id=1449353529]
+position = Vector2(-5, 28.5)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Pared2" type="StaticBody2D" parent="." unique_id=645455426]
+position = Vector2(515, 169)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Pared2" unique_id=778412439]
+position = Vector2(-3, 31.49998)
+scale = Vector2(0.953125, 3.0234375)
+texture = ExtResource("1_p6pa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared2" unique_id=1420881441]
+position = Vector2(-5, 28.5)
+shape = SubResource("RectangleShape2D_lfkbx")
